@@ -3,6 +3,8 @@ services:
     build: ./backend
     ports:
       - "8000:8000"
+    environment:
+      - ALLOWED_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
     volumes:
       - ./backend/temp_files:/app/temp_files
 
