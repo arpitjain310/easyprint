@@ -1,9 +1,10 @@
+import Layout from "../components/Layout";
 import UserUploadCard from "../components/UserUploadCard";
 
 export default function UserPage() {
   return (
-    <div className="page">
+    <Layout>
       <UserUploadCard />
-    </div>
+    </Layout>
   );
 }

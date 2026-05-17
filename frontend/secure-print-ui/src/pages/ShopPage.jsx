@@ -1,9 +1,10 @@
+import Layout from "../components/Layout";
 import ShopPrintCard from "../components/ShopPrintCard";
 
 export default function ShopPage() {
   return (
-    <div className="page">
+    <Layout>
       <ShopPrintCard />
-    </div>
+    </Layout>
   );
 }

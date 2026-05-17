@@ -1,72 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-ink-900: #0f172a;
+  --color-ink-700: #334155;
+  --color-ink-500: #64748b;
+  --color-ink-300: #cbd5e1;
+
+  --font-display: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  background: #f4f6f8;
-  margin: 0;
-}
-
-.page {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card {
-  background: white;
-  padding: 24px;
-  width: 100%;
-  max-width: 420px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-h1 {
-  margin-bottom: 8px;
-}
-
-label {
-  font-weight: 600;
-  margin-top: 12px;
-  display: block;
-}
-
-input, button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 6px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 16px;
-}
-
-button {
-  background: #2563eb;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-top: 16px;
-}
-
-button.secondary {
-  background: #e5e7eb;
-  color: #111;
-}
-
-.info-box {
-  background: #f1f5f9;
-  padding: 12px;
-  border-radius: 8px;
-  margin-top: 16px;
-  font-size: 14px;
-}
-
-.muted {
-  color: #555;
-  font-size: 14px;
-}
-
-video {
-  border-radius: 12px;
-  border: 2px dashed #2563eb;
-  margin-top: 12px;
+  font-family: var(--font-display);
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+  color: var(--color-ink-900);
+  -webkit-font-smoothing: antialiased;
 }
