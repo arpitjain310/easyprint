@@ -1,6 +1,8 @@
-# Smart Print
+# EasyPrint
 
 A secure PDF print-job submission system. Users upload PDFs and receive a QR code + PIN; shop staff scan the QR code, verify the PIN, and trigger the print. Jobs expire after 10 minutes.
+
+I built it around one constraint: a customer should be able to print at a shop without handing over their file by email, USB, or a logged-in account — just a QR code and a PIN that dies in ten minutes.
 
 
 ### Tech Stack
@@ -10,7 +12,7 @@ A secure PDF print-job submission system. Users upload PDFs and receive a QR cod
 | Backend  | Python 3.11, FastAPI, Uvicorn             |
 | Frontend | React 19, React Router, Vite              |
 | QR       | qrcode.react (generate), ZXing (scan)     |
-| Print    | Placeholder (ready for CUPS / lp)         |
+| Print    | CUPS (`lp`) / Windows, with stub fallback |
 
 ## User Flows
 
@@ -82,4 +84,12 @@ npm run dev
 Frontend runs at `http://localhost:5173`.
 
 ---
+
+## Design notes & limitations
+
+These are prototype boundaries I chose on purpose:
+
+- **In-memory job store.** Jobs and shop sessions live in process memory, so a restart clears them and it runs as a single instance. A persistent store (Redis / a database) is the next step for multi-instance use.
+- **Short-lived, single-use PINs.** A 6-digit PIN (drawn from `secrets`) paired with a 10-minute expiry and one-shot printing limits the exposure window. Per-job attempt throttling is the obvious next hardening step.
+- **Printing adapts to its environment.** The backend uses CUPS (`lp`) where available, falls back to the Windows print verb, and otherwise logs a stub — so the full flow is demoable without a physical printer.
 

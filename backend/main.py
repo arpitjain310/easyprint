@@ -1,7 +1,7 @@
 import asyncio
 import logging
 import os
-import random
+import secrets
 import uuid
 from contextlib import asynccontextmanager
 from datetime import datetime
@@ -88,7 +88,7 @@ async def upload(
         raise HTTPException(status_code=400, detail="Uploaded file is empty")
 
     job_id, path, expiry = save_temp_file(data)
-    pin = f"{random.randint(0, 999999):06d}"
+    pin = f"{secrets.randbelow(1_000_000):06d}"
 
     JOBS[job_id] = {
         "path": path,
